@@ -5,18 +5,29 @@ import ThemeSwitcher from "./ThemeSwitcher";
 export default class Navbar extends Component {
   static contextType = ThemeContext;
   render() {
-    const { isLightTheme, light, dark, handleClick } = this.context;
-    const theme = isLightTheme ? light : dark;
     return (
-      <nav style={{ background: theme.ui, color: theme.syntax }}>
-        <ThemeSwitcher isLightTheme={isLightTheme} handleClick={handleClick} />
-        <h1>Context App</h1>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
+      <ThemeContext.Consumer>
+        {context => {
+          const { isLightTheme, light, dark, handleClick } = context;
+          const theme = isLightTheme ? light : dark;
+          return (
+            <nav style={{ background: theme.ui, color: theme.syntax }}>
+              <div className='header'>
+                <h1>Context App</h1>
+                <ThemeSwitcher
+                  isLightTheme={isLightTheme}
+                  handleClick={handleClick}
+                />
+              </div>
+              <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+              </ul>
+            </nav>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
   }
 }
