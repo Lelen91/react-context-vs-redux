@@ -23,6 +23,7 @@ export default class Navbar extends Component {
                     <ThemeSwitcher
                       isLightTheme={isLightTheme}
                       handleClick={handleClick}
+                      theme={theme}
                     />
                   </div>
                   <ul>

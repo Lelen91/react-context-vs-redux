@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 export default class ThemeSwitcher extends Component {
   render() {
-    const { isLightTheme, handleClick } = this.props;
+    const { isLightTheme, handleClick, theme } = this.props;
     const themeName = isLightTheme ? "Dark" : "Light";
     return (
-      <button className='theme-switcher' onClick={() => handleClick()}>
+      <button className='theme-switcher' onClick={() => handleClick()} style={{borderColor: theme.btnBorderColor, color: theme.btnColor }}>
         {themeName}
       </button>
     );
