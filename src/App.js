@@ -1,16 +1,21 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import TechsList from "./components/TechsList";
+import TechList from "./components/TechList";
+import NewTechForm from "./components/NewTechForm";
 import ThemeContextProvider from "./contexts/ThemeContext";
 import AuthContextProvider from "./contexts/AuthContext";
+import TechContextProvider from "./contexts/TechContext";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <TechsList />
+          <TechContextProvider>
+            <TechList />
+            <NewTechForm />
+          </TechContextProvider>
         </AuthContextProvider>
       </ThemeContextProvider>
     </div>

@@ -6,7 +6,11 @@ export default class ThemeSwitcher extends Component {
     const { isLightTheme, handleClick, theme } = this.props;
     const themeName = isLightTheme ? "Dark" : "Light";
     return (
-      <button className='theme-switcher' onClick={() => handleClick()} style={{borderColor: theme.btnBorderColor, color: theme.btnColor }}>
+      <button
+        className="theme-switcher"
+        onClick={handleClick}
+        style={{ borderColor: theme.btnBorderColor, color: theme.btnColor }}
+      >
         {themeName}
       </button>
     );
@@ -15,5 +19,5 @@ export default class ThemeSwitcher extends Component {
 
 ThemeSwitcher.propTypes = {
   isLightTheme: PropTypes.bool.isRequired,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
 };
